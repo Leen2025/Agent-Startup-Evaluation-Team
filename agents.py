@@ -40,20 +40,20 @@ class Agent:
 # The 7 specialist agents (run in order, in parallel-friendly style).
 # ---------------------------------------------------------------------------
 SPECIALIST_AGENTS: list[Agent] = [
-    Agent("CEO & Strategy",       "🎯", prompts.ceo_prompt),
-    Agent("Market Research",      "📊", prompts.market_prompt),
-    Agent("Business Model",       "💰", prompts.business_model_prompt),
-    Agent("Customer Experience",  "😊", prompts.cx_prompt),
-    Agent("Software Architect",   "🛠️", prompts.architect_prompt),
-    Agent("Operations & Execution","🚀", prompts.operations_prompt),
-    Agent("Risk & Security",      "🛡️", prompts.risk_prompt),
+    Agent("CEO & Strategy",       "", prompts.ceo_prompt),
+    Agent("Market Research",      "", prompts.market_prompt),
+    Agent("Business Model",       "", prompts.business_model_prompt),
+    Agent("Customer Experience",  "", prompts.cx_prompt),
+    Agent("Software Architect",   "", prompts.architect_prompt),
+    Agent("Operations & Execution","", prompts.operations_prompt),
+    Agent("Risk & Security",      "", prompts.risk_prompt),
 ]
 
 
 # The 8th agent — always runs last, sees everyone else's report.
 INVESTOR_AGENT = Agent(
     name="Investor / Final Decision",
-    icon="🏦",
+    icon="",
     prompt_builder=prompts.investor_prompt,
 )
 

@@ -18,11 +18,11 @@ from ollama_client import DEFAULT_MODEL, OllamaError, check_ollama_available
 # ---------------------------------------------------------------------------
 st.set_page_config(
     page_title="AI Boardroom – Startup Evaluation Team",
-    page_icon="🏦",
+    page_icon="",
     layout="wide",
 )
 
-st.title("🏦 AI Boardroom – Startup Evaluation Team")
+st.title(" AI Boardroom – Startup Evaluation Team")
 st.caption(
     "Enter your startup idea and let 8 AI experts evaluate it, "
     "ending with a final investor verdict. Runs 100% locally on Ollama."
@@ -33,7 +33,7 @@ st.caption(
 # Sidebar: model + Ollama health
 # ---------------------------------------------------------------------------
 with st.sidebar:
-    st.header("⚙️ Settings")
+    st.header(" Settings")
 
     model = st.text_input(
         "Ollama model",
@@ -42,7 +42,7 @@ with st.sidebar:
              "Make sure you ran `ollama pull <model>` first.",
     )
 
-    if st.button("🔎 Check Ollama connection"):
+    if st.button(" Check Ollama connection"):
         ok, msg = check_ollama_available(model=model)
         (st.success if ok else st.error)(msg)
 
@@ -56,15 +56,15 @@ with st.sidebar:
 # ---------------------------------------------------------------------------
 # Main input form
 # ---------------------------------------------------------------------------
-st.subheader("📝 Startup Brief")
+st.subheader(" Startup Brief")
 
 with st.form("startup_form"):
     col1, col2 = st.columns(2)
     with col1:
-        name = st.text_input("Startup name", placeholder="e.g. NoorLearn")
+        name = st.text_input("Startup name", placeholder="e.g. Leen Alsaleh Coffee")
         target_users = st.text_input(
             "Target users",
-            placeholder="e.g. High-school students in Saudi Arabia",
+            placeholder="e.g. Customers in Saudi Arabia",
         )
         budget = st.text_input(
             "Budget",
@@ -73,21 +73,21 @@ with st.form("startup_form"):
     with col2:
         idea = st.text_area(
             "One-line idea",
-            placeholder="e.g. AI tutor that explains any topic in Arabic",
+            placeholder="e.g. specialty coffee subscription service with Arabic-first branding.",
             height=90,
         )
         problem = st.text_area(
             "Problem you are solving",
             height=90,
-            placeholder="e.g. Students struggle to find affordable, Arabic-first tutoring.",
+            placeholder="e.g. Lack of accessible, culturally relevant coffee options in Saudi Arabia.",
         )
         solution = st.text_area(
             "Your solution",
             height=90,
-            placeholder="e.g. A mobile app with an AI tutor fine-tuned for Arabic education.",
+            placeholder="e.g. A subscription service for specialty coffee with Arabic-first branding.",
         )
 
-    submitted = st.form_submit_button("🚀 Run the Boardroom")
+    submitted = st.form_submit_button(" Run the Boardroom")
 
 
 # ---------------------------------------------------------------------------
@@ -136,12 +136,12 @@ if submitted:
         st.stop()
 
     progress_area.empty()
-    st.success("✅ Boardroom evaluation complete.")
+    st.success(" Boardroom evaluation complete.")
 
     # -----------------------------------------------------------------------
     # Show the specialist reports in tabs
     # -----------------------------------------------------------------------
-    st.subheader("🧠 Specialist Reports")
+    st.subheader(" Specialist Reports")
 
     tab_labels = [f"{a.icon} {a.name}" for a in SPECIALIST_AGENTS]
     tabs = st.tabs(tab_labels)
@@ -168,7 +168,7 @@ if submitted:
     full_report = "\n".join(full_report_parts)
 
     st.download_button(
-        "⬇️ Download full report (Markdown)",
+        "⬇ Download full report (Markdown)",
         data=full_report,
         file_name=f"{name.replace(' ', '_')}_boardroom_report.md",
         mime="text/markdown",
