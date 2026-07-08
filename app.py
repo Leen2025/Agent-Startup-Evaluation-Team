@@ -25,7 +25,7 @@ st.set_page_config(
 st.title(" AI Boardroom – Startup Evaluation Team")
 st.caption(
     "Enter your startup idea and let 8 AI experts evaluate it, "
-    "ending with a final investor verdict. Runs 100% locally on Ollama."
+   
 )
 
 
